@@ -1,0 +1,42 @@
+p {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+.carousel {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.carousel__wrapper {
+  width: 400px;
+  margin: 0 auto;
+}
+.carousel__img {
+  width: 400px;
+  height: 400px;
+}
+.carousel__btn-box {
+  display: flex;
+  justify-content: space-between;
+}
+.carousel__btn {
+  min-width: 180px;
+  padding: 10px 20px;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
