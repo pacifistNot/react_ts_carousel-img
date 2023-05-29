@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../scss/style.css'
 import img1 from '../img/img1.jpg';
 import img2 from '../img/img2.jpg';
@@ -33,21 +33,33 @@ const images: Image[] = [
 const Carousel: React.FC = () => {
 
 // Состояние для хранения текущего индекса изображения
-  const [imgIndex, setimgIndex] = useState(0);
+  const [imgIndex, setimgIndex] = useState(0)
 
 // Обработчик для перехода к предыдущему изображению
   const previousImage = (): void => {
     setimgIndex((prevIndex: number) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+    )
+  }
 
 // Обработчик для перехода к следующему изображению
   const nextImage = (): void => {
     setimgIndex((prevIndex: number) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    )
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === "ArrowLeft") {
+        previousImage();
+      } else if (event.key === "ArrowRight") {
+        nextImage();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <div className="carousel">
